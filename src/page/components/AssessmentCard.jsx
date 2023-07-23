@@ -45,19 +45,23 @@ export const AssessmentCard = ({card}) => {
                     <img src={share} alt="share"/>
                     <span>Share</span>
                 </button>
-                <div className="users-avatar-box">
-                {
-                    users.length>0 && users.map(user=>{
-                        const firstName=user.name.split(' ')[0];
-                        const lastName=user.name.split(' ')[0];
-                        return (
-                            <Fragment key={user.id}>
-                                    <div className="userAvatar">{firstName[0]+''+lastName[0]}</div>
-                            </Fragment>)
-                    })
+                { users.length>0 &&
+                <Fragment>
+                    <div className="users-avatar-box">
+                    {
+                         users.map(user=>{
+                            const firstName=user.name.split(' ')[0];
+                            const lastName=user.name.split(' ')[0];
+                            return (
+                                <Fragment key={user.id}>
+                                        <div className="userAvatar">{firstName[0]+''+lastName[0]}</div>
+                                </Fragment>)
+                        })
+                    }
+                    </div>
+                    <span className="users-count">{card.attemptedUsers.length-users.length>0?"+"+(card.attemptedUsers.length-users.length):''}</span>
+                </Fragment>
                 }
-                </div>
-                <span className="users-count">{card.attemptedUsers.length-users.length>0?"+"+(card.attemptedUsers.length-users.length):''}</span>
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@ export const Header = () => {
     const [deviceType,setDeviceType]=useState('');
     const {data:{assessmentType},dispatch}=useAssessmentContext();
 
+    // 
     const windowWidth=()=>{
         if(window.innerWidth>=1200){
             setDeviceType('mobile');
@@ -16,7 +17,7 @@ export const Header = () => {
             setDeviceType('desktop');
         }
     }
-    
+
     useEffect(()=>{
         if(window.innerWidth>1200){
             setDeviceType('mobile');

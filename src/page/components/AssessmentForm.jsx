@@ -14,15 +14,19 @@ export const AssessmentForm = ({close}) => {
 
   // save form
   const saveFormHandler=(e)=>{
+    
     e.preventDefault();
+    const dateContructor=new Date();
+    const date=dateContructor.getDate()+"-"+dateContructor.getMonth()+"-"+dateContructor.getFullYear();
     const formDom=formRef.current;
     const name=formDom.querySelector('#name').value;
     const purpose=formDom.querySelector('#purpose').value;
     const description=formDom.querySelector('#description').value;
     const duration=formDom.querySelector('#duration').value;
 
-    dispatch({type:'setAssessmentData',payload:{name,purpose,description,duration,skills,question:10,date:Date.now()}});
+    dispatch({type:'setAssessmentData',payload:{name,purpose,description,duration,skills,question:10,date,attemptedUsers:[]}});
     close();
+
   }
   // skill tag functionality  of the form
   const skillsHandler=(e)=>{
