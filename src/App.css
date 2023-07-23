@@ -100,7 +100,7 @@
 }
 .modal.close{
   animation: slideDown 0.5s ease-in-out;
-  bottom:-100%;
+  top:100%;
 }
 
 .modal .close-modal{
