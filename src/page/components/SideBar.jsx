@@ -16,19 +16,19 @@ export const SideBar = () => {
             <img src={closeIcon} alt="close" onClick={()=>dispatch({type:'setSidebarToggling',payload:false})}/>
         </div>
         <div className="side-bar-links">
-            <Link to="/" className="side-bar-link">
+            <Link to="/" className="side-bar-link" onClick={()=>dispatch({type:'setSectionTab',payload:'dashboard'})}>
             <div className="side-bar-item">
                 <img src={dashboard} alt="dashboard"/>
                 <p>DashBoard</p>
             </div>
             </Link>
-            <Link to="/assessment" className="side-bar-link">
+            <Link to="/assessment" className="side-bar-link"  onClick={()=>dispatch({type:'setSectionTab',payload:'assessment'})}>
             <div className="side-bar-item">
                 <img src={assessment} alt="assessment"/>
                 <p>Assessment</p>
             </div>
             </Link>
-            <Link to="/library" className="side-bar-link">
+            <Link to="/library" className="side-bar-link"  onClick={()=>dispatch({type:'setSectionTab',payload:'library'})}>
             <div className="side-bar-item">
                 <img src={library} alt="library"/>
                 <p>Library</p>
@@ -39,7 +39,7 @@ export const SideBar = () => {
         <span className="horizontal-line"></span>
         <div className="side-bar-status">
             <p  className="tag">Admin</p>
-            <Link to="/status" className="side-bar-link">
+            <Link to="/status" className="side-bar-link"  onClick={()=>dispatch({type:'setSectionTab',payload:'round status'})}>
                 <div className="side-bar-item ">
                     <img src={admin} alt="admin"/>
                     <p>Round Status</p>

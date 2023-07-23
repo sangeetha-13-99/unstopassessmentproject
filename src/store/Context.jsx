@@ -2,13 +2,18 @@ import { createContext, useContext, useReducer } from "react";
 import { AssessmentsData } from "../data";
 
 const AssessmentContext=createContext({
-    assessmentData:[]
+    assessmentData:[],
+    assessmentType:'',
+    isSideBarOpen:false,
+    sectionTab:''
 });
 
 const reducerFunction=(state,action)=>{
     switch (action.type) {
         case 'setAssessmentData':
             return {...state,assessmentData:[action.payload,...state.assessmentData]};
+        case 'setSectionTab':
+            return {...state,sectionTab:action.payload};
         case 'setAssessmentType':
             return {...state,assessmentType:action.payload};
         case 'setSidebarToggling':
@@ -21,7 +26,8 @@ const reducerFunction=(state,action)=>{
 const initialData={
     assessmentData:AssessmentsData,
     assessmentType:'myAssessment',
-    isSideBarOpen:false
+    isSideBarOpen:false,
+    sectionTab:'dashboard'
 }
 export const AssessmentContextProvider=({children})=>{
     const [data,dispatch]=useReducer(reducerFunction,initialData);

@@ -19,12 +19,12 @@ export const AssessmentForm = ({close}) => {
     const dateContructor=new Date();
     const date=dateContructor.getDate()+"-"+dateContructor.getMonth()+"-"+dateContructor.getFullYear();
     const formDom=formRef.current;
-    const name=formDom.querySelector('#name').value;
-    const purpose=formDom.querySelector('#purpose').value;
-    const description=formDom.querySelector('#description').value;
-    const duration=formDom.querySelector('#duration').value;
+    const name=formDom.querySelector("#name").value;
+    const purpose=formDom.querySelector("#purpose").value;
+    const description=formDom.querySelector("#description").value;
+    const duration=formDom.querySelector("#duration").value;
 
-    dispatch({type:'setAssessmentData',payload:{name,purpose,description,duration,skills,question:10,date,attemptedUsers:[]}});
+    dispatch({type:"setAssessmentData",payload:{name,purpose,description,duration,skills,question:10,date,attemptedUsers:[]}});
     close();
 
   }
@@ -59,16 +59,16 @@ export const AssessmentForm = ({close}) => {
           </div>
           <div className="form-field">
             <label htmlFor="purpose">Purpose of the test is</label>
-            <select id="purpose">
-              <option value='' disabled>Select</option>
+            <select id="purpose" defaultValue="">
+              <option value="" disabled>Select</option>
               <option>Job</option>
               <option>Education</option>
             </select>
           </div>
           <div className="form-field">
             <label htmlFor="description">Description</label>
-            <select id="description">
-              <option value='' disabled>Select</option>
+            <select id="description" defaultValue="">
+              <option value="">Select</option>
               <option>English Language Proficiency Test</option>
               <option>Logical Skill Building Test</option>
               <option>Programming Language Proficiency Test</option>

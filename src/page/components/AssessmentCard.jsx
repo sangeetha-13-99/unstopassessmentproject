@@ -50,8 +50,8 @@ export const AssessmentCard = ({card}) => {
                     <div className="users-avatar-box">
                     {
                          users.map(user=>{
-                            const firstName=user.name.split(' ')[0];
-                            const lastName=user.name.split(' ')[0];
+                            const firstName=user.name.split(" ")[0];
+                            const lastName=user.name.split(" ")[0];
                             return (
                                 <Fragment key={user.id}>
                                         <div className="userAvatar">{firstName[0]+''+lastName[0]}</div>
