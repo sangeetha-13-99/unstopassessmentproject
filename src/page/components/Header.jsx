@@ -31,11 +31,11 @@ export const Header = () => {
         }
     },[]);
 
-    //  device toggliing working with developer  tools open
+    //  device toggling working with developer  tools open,
     const toggleViewHandler=()=>{
         if(deviceType==="mobile"){
             document.getElementsByTagName("meta")["viewport"].content="width=599px";
-            console.log(document.querySelector("html").innerWidth);
+            // console.log(document.querySelector("html").innerWidth);
             setDeviceType("desktop");
         }
         else{

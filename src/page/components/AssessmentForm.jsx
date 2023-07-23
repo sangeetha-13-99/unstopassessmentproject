@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useAssessmentContext } from "../../store/Context";
-import closeIcon from "../../assets/close.svg"
+import closeIcon from "../../assets/close.svg";
+import tickIcon from "../../assets/tick.svg";
 
 export const AssessmentForm = ({close}) => {
   const {dispatch}=useAssessmentContext();
@@ -29,16 +30,21 @@ export const AssessmentForm = ({close}) => {
 
   }
   // skill tag functionality  of the form
-  const skillsHandler=(e)=>{
-    if(e.keyCode==13 || e.which==13){
-      e.preventDefault()
-      if(e.target.value.trim()!==""){
-        if(!skills.find(skill=>skill.toLowerCase()==e.target.value.toLowerCase())){
-          setSkills(prev=>{
-            return [...prev,e.target.value];
-          });
-        }
+  const skillsHandler=()=>{
+    const value=formRef.current.querySelector("#skill").value;
+    if(value.trim()!==""){
+      if(!skills.find(skill=>skill.toLowerCase()==value.toLowerCase())){
+        setSkills(prev=>{
+          return [...prev,value];
+        });
       }
+    }
+  }
+  
+const skillsKeyDownHandler=(e)=>{
+  if(e.keyCode==13 || e.which==13){
+      e.preventDefault();
+      skillsHandler();
     }
   }
   
@@ -87,7 +93,10 @@ export const AssessmentForm = ({close}) => {
                 </button>)}
               )}
             </div>}
-            <input id="skill" type="text" onKeyDown={skillsHandler} placeholder="Type Here"/>
+            <div className="form-field-input">
+            <input id="skill" type="text" onKeyDown={skillsKeyDownHandler} placeholder="Type Here"/>
+            <img className="skill-tick-image cursor" src={tickIcon} alt="enter" onClick={skillsHandler}/>
+            </div>
           </div>
           <div className="form-field">
             <label htmlFor="duration">Duration of Assessment</label>

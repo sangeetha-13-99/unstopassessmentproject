@@ -534,6 +534,9 @@
   width: 100%;
   text-align: left;
 }
+.form-field-input{
+  position: relative;
+}
 
 .form-field label{
   font-size: 1rem;
@@ -607,7 +610,12 @@
 .skill-tag img{
   width:1rem;
 }
-
+.skill-tick-image{
+  width:2rem;
+  position:absolute;
+  top:0.5rem;
+  right:1rem;
+}
 
 
 /*  media query for tab and mobile view */

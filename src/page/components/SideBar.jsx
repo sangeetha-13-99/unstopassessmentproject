@@ -16,19 +16,31 @@ export const SideBar = () => {
             <img src={closeIcon} alt="close" onClick={()=>dispatch({type:'setSidebarToggling',payload:false})}/>
         </div>
         <div className="side-bar-links">
-            <Link to="/" className="side-bar-link" onClick={()=>dispatch({type:'setSectionTab',payload:'dashboard'})}>
+            <Link to="/" className="side-bar-link" onClick={()=>{
+                dispatch({type:'setSectionTab',payload:'dashboard'});
+                dispatch({type:'setSidebarToggling',payload:false});
+                }
+            }>
             <div className="side-bar-item">
                 <img src={dashboard} alt="dashboard"/>
                 <p>DashBoard</p>
             </div>
             </Link>
-            <Link to="/assessment" className="side-bar-link"  onClick={()=>dispatch({type:'setSectionTab',payload:'assessment'})}>
+            <Link to="/assessment" className="side-bar-link"  onClick={()=>
+                {dispatch({type:'setSectionTab',payload:'assessment'});
+                dispatch({type:'setSidebarToggling',payload:false});
+                }
+                }>
             <div className="side-bar-item">
                 <img src={assessment} alt="assessment"/>
                 <p>Assessment</p>
             </div>
             </Link>
-            <Link to="/library" className="side-bar-link"  onClick={()=>dispatch({type:'setSectionTab',payload:'library'})}>
+            <Link to="/library" className="side-bar-link"  onClick={()=>
+                {dispatch({type:'setSectionTab',payload:'library'});
+                dispatch({type:'setSidebarToggling',payload:false});
+            }
+                }>
             <div className="side-bar-item">
                 <img src={library} alt="library"/>
                 <p>Library</p>
@@ -39,7 +51,12 @@ export const SideBar = () => {
         <span className="horizontal-line"></span>
         <div className="side-bar-status">
             <p  className="tag">Admin</p>
-            <Link to="/status" className="side-bar-link"  onClick={()=>dispatch({type:'setSectionTab',payload:'round status'})}>
+            <Link to="/status" className="side-bar-link"  onClick={()=>
+                {
+                    dispatch({type:'setSectionTab',payload:'round status'});
+                    dispatch({type:'setSidebarToggling',payload:false});
+                }
+            }>
                 <div className="side-bar-item ">
                     <img src={admin} alt="admin"/>
                     <p>Round Status</p>
